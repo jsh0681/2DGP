@@ -1,6 +1,5 @@
 import game_framework
 from pico2d import *
-import main_state
 import pygame
 import title_state
 pygame.mixer.init()#초기화
@@ -8,7 +7,7 @@ pygame.mixer.init()#초기화
 name = "TitleState"
 image = None
 def playsong():
-    pygame.mixer.music.load('Sounds\\main.wav')
+    pygame.mixer.music.load('Sounds\\gameover.wav')
     pygame.mixer.music.play()
 
 def enter():

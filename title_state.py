@@ -1,6 +1,6 @@
 import game_framework
 from pico2d import *
-import main_state
+import Forest_Stage
 import pygame
 
 pygame.mixer.init()#초기화
@@ -31,7 +31,7 @@ def handle_events(frame_time):
                 game_framework.quit()
             elif(event.type , event.key)==(SDL_KEYDOWN , SDLK_SPACE):
                 pygame.mixer.music.pause()
-                game_framework.change_state(main_state)
+                game_framework.change_state(Forest_Stage)
 def draw(frame_time):
     clear_canvas()
     image.draw(400,300)

@@ -3,10 +3,10 @@ import random
 import game_framework
 import title_state
 import pygame
-from hero import Hero
+from Main_Character import Ninja
 
 grass = None
-hero = None
+ninja = None
 mainBGM = None
 background = None
 start_time = 0
@@ -111,17 +111,17 @@ grass_width = 800 # in tiles
 grass_height = 70  # in tiles
 
 def enter():
-    global hero, grass, background, mainBGM
+    global ninja, grass, background, mainBGM
     mainBGM = Mainbgm()
     mainBGM.playsong()
-    hero = Hero()
+    ninja = Ninja()
     grass = Grass(grass_width,grass_height)
     background = BackGround(background_width,background_height)
     pass
 
 def exit():
-    global hero, grass, background, mainBGM
-    del(hero,grass,background, mainBGM)
+    global ninja, grass, background, mainBGM
+    del(ninja,grass,background, mainBGM)
     pass
 
 def resume():
@@ -180,7 +180,7 @@ def handle_events(frame_time):
             print(current_time - start_time)
             file.close()
         else:
-            hero.handle_events(event,frame_time)
+            ninja.handle_events(event,frame_time)
             pass
 
 
@@ -193,15 +193,15 @@ def get_frame_time():
 
 def update(frame_time):
     frame_time = get_frame_time()
-    hero.update(frame_time)
+    ninja.update(frame_time)
     background.update(frame_time)
     grass.update(frame_time)
 
 def draw(frame_time):
-    global hero,grass,star,background
+    global ninja,grass,star,background
     clear_canvas()
     background.draw(frame_time)
     grass.draw(frame_time)
-    hero.draw(frame_time)
+    ninja.draw(frame_time)
     update_canvas()
     delay(0.05)
